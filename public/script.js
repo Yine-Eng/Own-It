@@ -65,11 +65,15 @@ returnDate.addEventListener('change', () => {
 fetch('/api/google-maps-key')
     .then(response => response.json())
     .then(data => {
-        const script = document.createElement('script');
-        script.src = `https://maps.googleapis.com/maps/api/js?key=${data.apiKey}&libraries=places&callback=initAutocomplete`;
-        script.async = true;
-        script.defer = true;
-        document.head.appendChild(script);
+        if (data.apiKey) {
+            const script = document.createElement('script');
+            script.src = `https://maps.googleapis.com/maps/api/js?key=${data.apiKey}&libraries=places&callback=initAutocomplete`;
+            script.async = true;
+            script.defer = true;
+            document.head.appendChild(script);
+        } else {
+            console.error('No API key found')
+        }
     })
     .catch(error => {
         console.error('Error fetching the API key:', error);

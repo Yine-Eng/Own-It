@@ -9,35 +9,6 @@
     <!-- FontAwesome unique link -->
     <script src="https://kit.fontawesome.com/1a552ea376.js" crossorigin="anonymous"></script>
 
-    <!-- Google Places Autocomplete Function -->
-    <script>
-        function initAutocomplete() {
-            const locationInput = document.getElementById('location-input');
-
-            // Create the autocomplete object, restricting the search predictions to geographical location types
-            const autocomplete = new google.maps.places.Autocomplete(locationInput, {
-                types: ['geocode'],
-                componentRestrictions: { country: ['us'] },
-                fields: ['place_id', 'geometry', 'name'],
-            });
-
-            // Bias the autocomplete object to the user's geographical location
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition((position) => {
-                    const geolocation = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude,
-                    };
-                    const circle = new google.maps.Circle({
-                        center: geolocation,
-                        radius: position.coords.accuracy,
-                    });
-                    autocomplete.setBounds(circle.getBounds());
-                });
-            }
-        }
-    </script>
-
 </head>
 <body>
     <!-- Header -->
@@ -311,7 +282,36 @@
         </div>
     </div>
 
-    <!-- Link to JS -->
+    <!-- Google Places Autocomplete Function -->
+    <script>
+        function initAutocomplete() {
+            const locationInput = document.getElementById('location-input');
+
+            // Create the autocomplete object, restricting the search predictions to geographical location types
+            const autocomplete = new google.maps.places.Autocomplete(locationInput, {
+                types: ['geocode'],
+                componentRestrictions: { country: ['us'] },
+                fields: ['place_id', 'geometry', 'name'],
+            });
+
+            // Bias the autocomplete object to the user's geographical location
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    const geolocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude,
+                    };
+                    const circle = new google.maps.Circle({
+                        center: geolocation,
+                        radius: position.coords.accuracy,
+                    });
+                    autocomplete.setBounds(circle.getBounds());
+                });
+            }
+        }
+    </script>
+
+    <!-- Link to external JS -->
     <script src="script.js"></script>
 </body>
 </html>
