@@ -1,0 +1,779 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+    font-family: "Lora", serif;
+}
+
+:root {
+    --color: hsl(235, 66%, 30%);
+    --second-color: hsl(36, 100%, 50%);
+    --text-color: hsl(0, 0%, 100%);
+    --gradient-middle: #64b5f6;
+    --gradient: linear-gradient(to bottom right, var(--color), var(--gradient-middle), var(--second-color));
+    --hover-btn: hsl(21, 100%, 45%);
+}
+
+
+/* Custom Scroll Bar */
+html::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--color);
+    border-radius: 5rem;
+}
+
+
+/* Navbar CSS */
+section {
+    padding: 50px 100px;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--color);
+    padding: 15px 100px;
+}
+
+.logo img {
+    width: 40px;
+}
+
+.navbar {
+    display: flex;
+}
+
+.navbar li {
+    position: relative;
+}
+
+.navbar a {
+    font-size: 1rem;
+    padding: 10px 20px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.navbar a::after {
+    content: "";
+    width: 0%;
+    height: 3px;
+    background: var(--gradient);
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    transition: 0.5s;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+#menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10001;
+    display: none;
+}
+
+/* Hide the mobile sign-up and sign-in buttons on larger screens */
+.mobile-btns {
+    display: none;
+}
+
+.btns a {
+    padding: 10px 20px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.btns .sign-in, .btns .sign-up {
+    background-color: var(--gradient-middle);
+    color: var(--color);
+    border-radius: 0.5rem;
+}
+
+.btns .sign-in:hover, .btns .sign-up:hover {
+    background: var(--hover-btn);
+    color: var(--text-color);
+}
+
+.home {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Home Section CSS */
+#bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.home .text {
+    position: relative;
+    z-index: 1;
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 0 20px;
+}
+
+.home .text h1 {
+    font-size: 3.5rem;
+    letter-spacing: 2px;
+    color: var(--text-color);
+    text-shadow: 2px 2px 4px hsla(0, 0%, 0%, 0.6);
+}
+
+.home .text h1 span {
+    color: var(--gradient-middle);
+}
+
+.home .text h1 br + span {
+    color: var(--second-color);
+}
+
+.home .text p {
+    font-size: 1.5rem;
+    margin: 0.5rem 0 1rem;
+    color: var(--text-color);
+    text-shadow: 1px 1px 3px hsla(0, 0%, 0%, 0.6);
+}
+
+.app-stores {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.app-stores .store-img {
+    width: 150px;
+    height: 60px;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-stores .store-img img {
+    max-width: 100%;
+    max-height: 100%;
+    cursor: pointer;
+    object-fit: contain;
+}
+
+.app-stores .store-img:last-child {
+    margin-right: 0;
+}
+
+.form-container {
+    position: relative;
+    z-index: 1;
+    background: hsla(235, 66%, 30%, 0.8);
+    padding: 20px;
+    border-radius: 0.5rem;
+    margin-top: 20px;
+    width: calc(100% - 40px);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-container form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+.input-box {
+    flex: 1 1 7rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-box span {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.input-box input, .input-box select {
+    padding: 7px;
+    outline: none;
+    border: none;
+    background: hsla(0, 0%, 100%, 0.9);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    color: var(--color);
+}
+
+.form-container .btn {
+    flex: 1 1 7rem;
+    padding: 10px 34px;
+    border: none;
+    border-radius: 0.5rem;
+    background: var(--gradient-middle);
+    color: var(--color);
+    font-size: 1rem;
+    font-weight: 500;
+    align-self: flex-end;
+    margin-top: auto;
+}
+
+.form-container .btn:hover {
+    background: var(--hover-btn);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+
+/* Ride Section CSS */
+.heading {
+    text-align: center;
+}
+
+.heading span {
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.heading h1 {
+    font-size: 2rem;
+}
+
+.ride-container {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.ride-container .box {
+    text-align: center;
+    padding: 20px;
+}
+
+.ride-container .box .fa-solid.fa-location-dot,
+.ride-container .box .fa-solid.fa-calendar-check,
+.ride-container .box .fa-solid.fa-car {
+    font-size: 40px;
+    padding: 10px;
+    background: var(--text-color);
+    border-radius: 0.5rem;
+    color: var(--color);
+    transition: background 0.3s ease;
+}
+
+.ride-container .box h2 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 1.4rem 0 0.5rem;
+}
+
+.ride-container .box .fa-solid.fa-location-dot:hover,
+.ride-container .box .fa-solid.fa-calendar-check:hover,
+.ride-container .box .fa-solid.fa-car:hover {
+    background: var(--hover-btn);
+    color: var(--text-color);
+}
+
+
+/* Services Section CSS */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.services-container .box {
+    padding: 10px;
+    border-radius: 1rem;
+    box-shadow: 1px 4px 41px rgba(0, 0, 0, 0.1);
+}
+
+.services-container .box .box-img {
+    width: 100%;
+    height: 200px;
+}
+
+.services-container .box .box-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
+}
+
+.services-container .box p {
+    padding: 0 10px;
+    border: 1px solid var(--gradient-middle);
+    width: 58px;
+    border-radius: 0.5rem;
+    margin: 1rem 0 1rem;
+}
+
+.services-container .box h3 {
+    font-weight: 500;
+}
+
+.services-container .box h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color);
+    margin: 0.2rem 0 0.5rem;
+}
+
+.services-container .box h2 span {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: black;
+}
+
+.services-container .box .btn {
+    display: flex;
+    justify-content: center;
+    background: var(--gradient-middle);
+    color: var(--color);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.services-container .box .btn:hover {
+    background: var(--hover-btn);
+    color: var(--text-color);
+}
+
+
+/* About Section CSS */
+.about-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 2rem;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.about-image img {
+    width: 100%;
+}
+
+.about-text span {
+    font-weight: 500;
+    color: var(--color);
+    text-transform: uppercase;
+}
+
+.about-text p {
+    margin: 0.5rem 0 1.4rem;
+}
+
+.about-text .btn {
+    padding: 10px 20px;
+    background: var(--gradient-middle);
+    color: var(--color);
+    border-radius: 0.5rem;
+}
+
+.about-text .btn:hover {
+    background: var(--hover-btn);
+    color: var(--text-color);
+}
+
+
+/* Reviews Section CSS */
+.reviews-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.reviews-container .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 1px 4px 41px hsla(0, 0%, 0%, 0.1);
+    border-radius: 0.5rem;
+}
+
+.reviews-container .box h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0.5rem 0 0.5rem;
+}
+
+.reviews-container .box p {
+    font-style: italic;
+}
+
+.reviews-container .box .stars .fa-solid.fa-star,
+.reviews-container .box .stars .fa-solid.fa-star-half-stroke {
+    color: var(--gradient-middle);
+}
+
+.review-image {
+    width: 70px;
+    height: 70px;
+}
+
+.review-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 2px solid var(--gradient-middle);
+}
+
+
+/* Newsletter CSS */
+.newsletter {
+    background: linear-gradient(to top right, var(--gradient-middle), hsl(235, 66%, 20%));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    color: var(--text-color);
+}
+
+.newsletter h1 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    padding-bottom: 1.1rem;
+}
+
+.newsletter h2 {
+    text-align: center;
+    font-size: 1.7rem;
+    padding-bottom: 1.1rem;
+}
+
+.newsletter h2 span {
+    color: var(--hover-btn);
+}
+
+.newsletter .box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    padding: 4px 8px;
+    width: 350px;
+    display: flex;
+}
+
+.newsletter .box input {
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    margin-right: 10px;
+    font-size: 1rem;
+    width: 250px;
+}
+
+.newsletter .box .btn {
+    padding: 8px 20px;
+    background: var(--gradient-middle);
+    border: none;
+    border-radius: 0.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: background 0.3s ease;
+}
+
+.newsletter .box .btn:hover {
+    background: var(--hover-btn);
+}
+
+
+/* Copyright Section */
+.copyright {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.copyright p {
+    flex: 1;
+    margin: 0;
+}
+
+.copyright .social {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.copyright .social a {
+    display: flex;
+    align-items: center;
+}
+
+#Instagram-logo, 
+#Facebook-logo, 
+#LinkedIn-logo {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* Media Queries for Responsiveness */
+/* Media Query for tablets and larger screens (landscape mode) */
+@media (max-width: 1200px) {
+    section {
+        padding: 50px 50px;
+    }
+
+    header {
+        padding: 15px 50px;
+    }
+
+    .form-container {
+        left: 50px;
+    }
+}
+
+
+/* Media Query for tablets and smaller desktop screens */
+@media (max-width: 991px) {
+    #menu-icon {
+        display: block;
+    }
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 50%;
+        height: 100%;
+        background: var(--color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.3s;
+    }
+
+    .navbar li {
+        margin: 20px 0;
+    }
+
+    .navbar a {
+        font-size: 1.5rem;
+    }
+
+    .navbar a::after {
+        display: none;
+    }
+
+    .navbar.active {
+        right: 0;
+    }
+
+    .mobile-btns {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+    .mobile-btns a {
+        padding: 10px;
+        background-color: var(--gradient-middle);
+        color: var(--color);
+        border-radius: 0.5rem;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .mobile-btns a:hover {
+        background-color: var(--hover-btn);
+        color: var(--text-color);
+    }
+
+    /* Hide the large-screen sign-in and sign-up buttons */
+    .btns {
+        display: none;
+    }
+
+    .home .text h1 {
+        font-size: 2.5rem;
+    }
+
+    .home .text p {
+        font-size: 1.2rem;
+    }
+
+    .form-container {
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        width: auto;
+    }
+
+    .ride-container,
+    .services-container,
+    .reviews-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+
+    .newsletter .box {
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .newsletter h1 {
+        text-align: center;
+    }
+}
+
+
+/* Media Query for tablets and smaller screens (portrait mode) */
+@media (max-width: 768px) {
+    section {
+        padding: 50px 20px;
+    }
+
+    header {
+        padding: 15px 20px;
+    }
+
+    .form-container {
+        flex-direction: column;
+        position: relative;
+        margin: 0 auto;
+        left: auto;
+        right: auto;
+        background: hsla(235, 66%, 30%, 0.9);
+        padding: 10px;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .form-container form {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .newsletter a {
+        text-align: center;
+    }
+}
+
+
+/* Media Query for mobile phones (portrait mode) */
+@media (max-width: 576px) {
+    .home {
+        padding: 0 20px;
+    }
+
+    .home .text {
+        margin-top: 15vh;
+        padding: 0 10px;
+    }
+
+    .home .text h1 {
+        font-size: 2rem;
+    }
+
+    .home .text p {
+        font-size: 1rem;
+    }
+
+    .form-container {
+        flex-direction: column;
+        position: relative;
+        bottom: auto;
+        left: auto;
+        background: hsla(235, 66%, 30%, 0.9);
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    .form-container .btn {
+        width: 100%;
+    }
+
+    .ride-container,
+    .services-container,
+    .reviews-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+
+    .newsletter h1,
+    .newsletter h2 {
+        font-size: 1.5rem;
+    }
+
+    .newsletter .box {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .newsletter .box input {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .newsletter .box .btn {
+        width: 100%;
+    }
+
+    .copyright {
+        flex-direction: column;
+    }
+
+    .copyright p, .copyright .social {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+}

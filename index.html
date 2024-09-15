@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Own It Car Rental</title>
+    <!-- Link to CSS -->
+    <link href="style.css" rel="stylesheet">
+    <!-- FontAwesome unique link -->
+    <script src="https://kit.fontawesome.com/1a552ea376.js" crossorigin="anonymous"></script>
+
+    <!-- Google Places Autocomplete Function -->
+    <script>
+        function initAutocomplete() {
+            const locationInput = document.getElementById('location-input');
+
+            // Create the autocomplete object, restricting the search predictions to geographical location types
+            const autocomplete = new google.maps.places.Autocomplete(locationInput, {
+                types: ['geocode'],
+                componentRestrictions: { country: ['us'] },
+                fields: ['place_id', 'geometry', 'name'],
+            });
+
+            // Bias the autocomplete object to the user's geographical location
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    const geolocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude,
+                    };
+                    const circle = new google.maps.Circle({
+                        center: geolocation,
+                        radius: position.coords.accuracy,
+                    });
+                    autocomplete.setBounds(circle.getBounds());
+                });
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo"><img src="images/logo(2).png" alt="Own It logo"></a>
+
+        <!-- Menu Icon -->
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
+
+        <!-- Nav. bar -->
+        <nav>
+            <ul class="navbar">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#ride">Ride</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <!-- Sign-up and Sign-in buttons inside the navbar for mobile view -->
+                <li class="mobile-btns">
+                    <a href="#" class="sign-up">Sign Up</a>
+                    <a href="#" class="sign-in">Sign In</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Sign-up/sign-in btns. for larger screens -->
+        <div class="btns">
+            <a href="#" class="sign-up">Sign Up</a>
+            <a href="#" class="sign-in">Sign In</a>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section class="home" id="home">
+        <!-- Background video -->
+        <video autoplay muted loop id="bg-video">
+            <source src="videos/Lady-Driving.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+
+        <div class="text">
+            <h1><span>Looking</span> to <br> rent a car?</h1>
+            <p>With us, it feels like you own it!</p>
+            <div class="app-stores">
+                <div class="store-img">
+                    <img src="app-stores/apple-store(2).svg" alt="Download on the App Store">
+                    <img src="app-stores/google-play(2).svg" alt="Get it on Google Play">
+                </div>
+            </div>
+        </div>
+
+        <!-- Form -->
+        <div class="form-container">
+            <form action="">
+                <div class="input-box">
+                    <span>Pickup Location</span>
+                    <input type="search" id="location-input" name="pickup location" placeholder="Search Places" required>
+                    <!-- Auto Complete List For Autocompletion-->
+                    <div class="autocomplete-items" id="autocomplete-list"></div>
+                </div>
+                <div class="input-box">
+                    <span>Pickup Date</span>
+                    <input type="date" id="pickUpDate" name="pickup date" required>
+                </div>
+                <div class="input-box">
+                    <span>Return Date</span>
+                    <input type="date" id="returnDate" name="return date" required>
+                </div>
+                <div class="input-box">
+                    <span>Select Your Ride</span>
+                    <select name="ride select" required>
+                        <option value="" disabled selected>Select Your Ride</option>
+                        <option value="Ferrari 458 Spider">Ferrari 458 Spider</option>
+                        <option value="Mercedes-AMG GT R">Mercedes-AMG GT R</option>
+                        <option value="BMW 3 Series Gran Turismo">BMW 3 Gran Turismo</option>
+                        <option value="Ford Mustang">Ford Mustang</option>
+                        <option value="Land Rover Range Rover Evoque">Range Rover Evoque</option>
+                        <option value="Chevrolet Bel Air">Chevrolet Bel Air</option>
+                    </select>
+                </div>
+                <input type="submit" class="btn">
+            </form>
+        </div>
+    </section>
+
+    <!-- Ride Section -->
+    <section class="ride" id="ride">
+        <div class="heading">
+            <span>How It Works</span>
+            <h1>Rent it with 3 Easy Steps</h1>
+        </div>
+        <div class="ride-container">
+            <div class="box">
+                <i class="fa-solid fa-location-dot"></i>
+                <h2>Pick A Location</h2>
+                <p>This is the first step: You choose your preferred location.</p>
+            </div>
+
+            <div class="box">
+                <i class="fa-solid fa-calendar-check"></i>
+                <h2>Fill Dates</h2>
+                <p>This is the second step: Let us know when you need the car and when you'll return it.</p>
+            </div>
+
+            <div class="box">
+                <i class="fa-solid fa-car"></i>
+                <h2>Choose Your Ride</h2>
+                <p>This is the last step: Pick a car from our collection.</p>
+            </div>
+        </div>
+    </section>
+
+    <!--Services Section-->
+    <section class="services" id="services">
+        <div class="heading">
+            <span>Best Services</span>
+            <h1>Explore Top Deals <br> From Top Rated Dealers</h1>
+        </div>
+        <div class="services-container">
+            <div class="box">
+                <div class="box-img">
+                    <img src="images/ferrari-red.jpg" alt="Red Ferrari 458 Spider">
+                </div>
+                <p>2015</p>
+                <h3>Ferrari 458 Spider</h3>
+                <h2>$5,000 <span>/week </span>| $800 <span>/day</span></h2>
+                <a href="#" class="btn">Rent Now</a>
+            </div>
+
+            <div class="box">
+                <div class="box-img">
+                    <img src="images/benz.jpg" alt="Mercedes-AMG GT R">
+                </div>
+                <p>2016</p>
+                <h3>Mercedes-AMG GT R</h3>
+                <h2>$3,000 <span>/week </span>| $500 <span>/day</span></h2>
+                <a href="#" class="btn">Rent Now</a>
+            </div>
+
+            <div class="box">
+                <div class="box-img">
+                    <img src="images/bmw.jpg" alt="Blue BMW 3 Series Gran Turismo">
+                </div>
+                <p>2013</p>
+                <h3>BMW 3 Gran Turismo</h3>
+                <h2>$600 <span>/week </span>| $100 <span>/day</span></h2>
+                <a href="#" class="btn">Rent Now</a>
+            </div>
+
+            <div class="box">
+                <div class="box-img">
+                    <img src="images/ford-mustang.jpg" alt="Red Ford Mustang">
+                </div>
+                <p>2015</p>
+                <h3>Ford Mustang</h3>
+                <h2>$700 <span>/week </span>| $120 <span>/day</span></h2>
+                <a href="#" class="btn">Rent Now</a>
+            </div>
+
+            <div class="box">
+                <div class="box-img">
+                    <img src="images/Range-Rover.jpg" alt="Land Rover Range Rover Evoque">
+                </div>
+                <p>2018</p>
+                <h3>Range Rover Evoque</h3>
+                <h2>$1,200 <span>/week </span>| $200 <span>/day</span></h2>
+                <a href="#" class="btn">Rent Now</a>
+            </div>
+
+            <div class="box">
+                <div class="box-img">
+                    <img src="images/chevy.jpg" alt="Chevrolet Bel Air">
+                </div>
+                <p>1975</p>
+                <h3>Chevrolet Bel Air</h3>
+                <h2>$900 <span>/week </span>| $150 <span>/day</span></h2>
+                <a href="#" class="btn">Rent Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="heading">
+            <span>About Us</span>
+            <h1>We Give You The Best Experience</h1>
+        </div>
+        <div class="about-container">
+            <div class="about-image">
+                <img src="images/bg(1).png" alt="A collection of cars">
+            </div>
+            <div class="about-text">
+                <span>About Us</span>
+                <p>It is our priority that our customers feel like they are the owners of the ride they pick. Our agreement with them is simple: Don't forget to obey road laws! People are expecting their loved ones to return. Drive safely and do not be the reason someone loses a loved one!</p>
+                <p>We pride ourselves as the best rental site in the world. That explains our popularity, a testimony for serving the U.S. in a decade!</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section-->
+    <section class="reviews" id="reviews">
+        <div class="heading">
+            <span>Reviews</span>
+            <h1>Hear From Our Customers</h1>
+        </div>
+        <div class="reviews-container">
+            <div class="box">
+                <div class="review-image">
+                    <img src="reviews/review-sarah.jpg" alt="">
+                </div>
+                <h2>Sarah Young</h2>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+            <p>I always rent cars from Own It. I've used their services for seven years. They've never disappointed!</p>
+            </div>
+
+            <div class="box">
+                <div class="review-image">
+                    <img src="reviews/review-jones.jpg" alt="">
+                </div>
+                <h2>Jones Manning</h2>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <p>I am a businessman who travels at least three days in a month. I can't drive my personal car with me to everywhere I go. It feels like I am driving my own car when I rent from Own It. They are the BEST in the country.</p>
+            </div>
+
+            <div class="box">
+                <div class="review-image">
+                    <img src="reviews/review-tamia.jpg" alt="">
+                </div>
+                <h2>Kita Tamia</h2>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <p>I used Own It's services when my car broke down. I went with their weekly plan and I would not think of renting a car from any other company. Own It is the best for my family and I.  </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <h1>Want to be the first to be alerted about new deals?</h1>
+        <h2><span>Subscribe</span> To Our Newsletter</h2>
+        <div class="box">
+            <input type="email" placeholder="Enter Your Email" id="email-field" required>
+            <a href="#" class="btn">Subscribe</a>
+        </div>
+    </section>
+
+    <!-- Copyright Section -->
+    <div class="copyright">
+        <p>&#169; SampsonAnaba All Rights Reserved</p>
+        <div class="social">
+            <a href="#"><img id="Instagram-logo" src="logos\IG_brand_asset_pack_2023\01 Static Glyph\01 Gradient Glyph\Instagram_Glyph_Gradient.png"/></a>
+            <a href="#"><img id="Facebook-logo" src="logos\Facebook-Brand-Asset-Pack\Facebook Brand Asset Pack\Logo\Primary Logo\Facebook_Logo_Primary.png"/></a>
+            <a href="#"><img id="LinkedIn-logo" src="logos\LinkedIn-Logos\LinkedIn-Logos\LI-In-Bug.png"/></a>
+        </div>
+    </div>
+
+    <!-- Link to JS -->
+    <script src="script.js"></script>
+</body>
+</html>
