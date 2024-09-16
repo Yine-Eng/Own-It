@@ -62,7 +62,7 @@ returnDate.addEventListener('change', () => {
     }
 });
 
-fetch('/api/google-maps-key')
+fetch('https://own-it-backend.vercel.app/api/google-maps-key')
     .then(response => response.json())
     .then(data => {
         if (data.apiKey) {
