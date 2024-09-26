@@ -32,4 +32,4 @@ We are continually working on enhancing the booking experience and expanding the
 ### 🛠️ Backend:
 - [Own It Car Rental Backend](https://own-it-backend.vercel.app/)
 
-**Feel free to test the app and let us know your thoughts!**
+**Feel free to test the app and let me know your thoughts!**
