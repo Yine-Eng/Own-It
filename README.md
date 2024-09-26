@@ -1,46 +1,35 @@
-**Own It Car Rental - Frontend**
-Own It Car Rental is a sleek web application that allows users to rent luxury cars by selecting pickup and return dates, choosing a vehicle, and specifying their preferred location. With a user-friendly interface and integrated Google Maps Autocomplete, this platform provides a smooth and seamless experience for car rentals.
+# Own It Car Rental 🚗
 
-**Features**
-**1. Google Maps Autocomplete:**
+> A modern web application that allows users to rent luxurious cars with ease. Select a vehicle, choose pickup and return dates, and use Google Maps Autocomplete for location services.
 
-Users can search for their pickup location using Google Maps Autocomplete, which biases the results based on the user's current geographical location, making the search quicker and more relevant.
+### Status: 🚀 Deployed
 
-**2. Luxury Car Rental:**
+### 📅 Expected Updates:
+We are continually working on enhancing the booking experience and expanding the available car fleet. Look out for new features!
 
-Users can select from a list of luxurious vehicles to rent, with clear options for different price ranges (daily and weekly rates).
+### 🛠️ Tech Stack:
+- **Frontend:** HTML, CSS, JavaScript
+- **APIs:** Google Maps JavaScript API (for autocomplete)
+- **Backend:** Node.js & Express.js
+- **Icons:** FontAwesome
+- **Deployment:** Vercel (both frontend and backend)
 
-**3. Real-Time Location Services:**
+### 🔥 Features:
+1. **Google Maps Autocomplete:** Search for pickup locations using Google Maps, with suggestions biased based on your geographical location.
+2. **Luxury Car Selection:** Choose from a wide range of luxury vehicles, available at daily and weekly rates.
+3. **Real-Time Location Services:** Utilize real-time location to enhance the user experience by providing relevant and nearby pickup points.
+4. **Responsive Design:** Access the app seamlessly from mobile, tablet, or desktop.
 
-The app makes use of the user’s current location to enhance the pickup location search results, providing the nearest and most convenient location options.
+### 🎯 How to Use:
+1. **Enter Pickup Location**: Start typing in your desired pickup location using the autocomplete field powered by Google Maps.
+2. **Select Dates**: Choose your preferred pickup and return dates.
+3. **Choose a Vehicle**: Select from a range of luxury cars based on availability.
+4. **Submit Your Booking**: Confirm your choices and submit the form to proceed with the rental.
 
-**4. Responsive Design:**
+### 🚀 Live Demo:
+- [Own It Car Rental Frontend](https://own-it-rental.vercel.app/)
 
-The application is designed to work seamlessly on mobile, tablet, and desktop devices, ensuring a consistent user experience across all platforms.
+### 🛠️ Backend:
+- [Own It Car Rental Backend](https://own-it-backend.vercel.app/)
 
-**Usage**
-**1. Select Your Pickup Location:**
-
-Type in your desired pickup location in the autocomplete field, where suggestions are biased based on your current geographical location.
-
-**2. Select Dates:**
-
-Choose your preferred pickup and return dates. Remember, the return date will only be available after selecting a pickup date.
-
-**3. Pick a Car:**
-
-Choose from a wide range of luxurious cars, and select the one that fits your needs and budget.
-
-**4. Submit:**
-
-Click the submit button to confirm your choices and proceed with your rental.
-
-**Tech Stack**
-**1. Frontend:** HTML, CSS, JavaScript
-**2. Google Maps JavaScript API:** For the autocomplete feature (pickup location).
-**3. FontAwesome:** For icons used in the UI.
-**4. Vercel:** For frontend and backend deployment.
-**5. Node.js & Express.js:** Backend services (for API key handling and server-side functionality).
-
-Deployed Version
-You can try out the live app here: [Own It Car Rental Frontend](https://own-it-rental.vercel.app/)
+**Feel free to test the app and let us know your thoughts!**
