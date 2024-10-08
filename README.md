@@ -30,6 +30,6 @@ We are continually working on enhancing the booking experience and expanding the
 - [Own It Car Rental Frontend](https://own-it-rental.vercel.app/)
 
 ### 🛠️ Backend:
-- [Own It Car Rental Backend](https://own-it-backend.vercel.app/)
+- [Own It Car Rental Backend repository](https://github.com/Yine-Eng/Own-It-Backend)
 
 **Feel free to test the app and let me know your thoughts!**
